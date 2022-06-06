@@ -1,11 +1,15 @@
 package simple.practice.board.entity;
 
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 
-@Getter
+@Data
+@Builder
 @Entity
 public class UserEntity extends BaseEntity {
 
@@ -21,13 +25,21 @@ public class UserEntity extends BaseEntity {
     )
     private String userId;
 
-    @Length(min = 8, max = 30)
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false,
             unique = true,
             updatable = false)
     private String email;
+
+    @Column(nullable = false, updatable = false)
+    private Role role;
+
+    @Column(nullable = false)
+    private boolean isActive;
+
+    @Column(nullable = false)
+    private String salt;
 
 }

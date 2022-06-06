@@ -7,10 +7,11 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class UserDto {
+public class UserSignUpDto {
 
     private LocalDateTime createDate;
     private String userId;
-    private String email;
+    private String password;
+    private String userEmail;
 
 }

@@ -6,4 +6,7 @@ import simple.practice.board.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<UserEntity, Long> {
+
+    UserEntity findByUserEmail(String userEmail);
+
 }
